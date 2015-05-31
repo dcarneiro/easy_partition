@@ -27,9 +27,21 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
-  s.add_dependency "activerecord", "~> 3.0"
-
   s.add_development_dependency "bundler", "~> 1.9"
   s.add_development_dependency "minitest"
   s.add_development_dependency "rake", "~> 10.0"
+
+  if ENV['RAILS_4_0']
+    s.add_dependency 'activerecord', '~> 4.0.0'
+    s.add_dependency 'activemodel', '~> 4.0.0'
+  elsif ENV['RAILS_4_1']
+    s.add_dependency 'activerecord', '~> 4.1.0'
+    s.add_dependency 'activemodel', '~> 4.1.0'
+  elsif ENV['RAILS_4_2']
+    s.add_dependency 'activerecord', '>= 4.2.0'
+    s.add_dependency 'activemodel', '>= 4.2.0'
+  else
+    s.add_dependency 'activerecord', '>= 4.0.0', '< 5'
+    s.add_dependency 'activemodel', '>= 4.0.0', '< 5'
+  end
 end

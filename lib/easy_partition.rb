@@ -1,5 +1,8 @@
-require "easy_partition/version"
+require 'active_record'
+require 'easy_partition/version'
 
 module EasyPartition
-  # Your code goes here...
+  autoload :ActiveRecord, 'partitions/active_record'
 end
+
+# ActiveRecord::Base.extend(EasyPartition::ActiveRecord::Migration)
