@@ -22,26 +22,18 @@ Gem::Specification.new do |s|
   # end
 
   s.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  s.platform      = Gem::Platform::RUBY
   s.bindir        = "exe"
   s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
+  s.add_dependency 'activerecord', '>= 4.2.0', '< 4.3'
+  s.add_dependency 'activemodel', '>= 4.2.0', '< 4.3'
+
   s.add_development_dependency "bundler", "~> 1.9"
   s.add_development_dependency "minitest"
-  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency 'minitest-reporters'
 
-  if ENV['RAILS_4_0']
-    s.add_dependency 'activerecord', '~> 4.0.0'
-    s.add_dependency 'activemodel', '~> 4.0.0'
-  elsif ENV['RAILS_4_1']
-    s.add_dependency 'activerecord', '~> 4.1.0'
-    s.add_dependency 'activemodel', '~> 4.1.0'
-  elsif ENV['RAILS_4_2']
-    s.add_dependency 'activerecord', '>= 4.2.0'
-    s.add_dependency 'activemodel', '>= 4.2.0'
-  else
-    s.add_dependency 'activerecord', '>= 4.0.0', '< 5'
-    s.add_dependency 'activemodel', '>= 4.0.0', '< 5'
-  end
+  s.add_development_dependency "rake", "~> 10.0"
 end
