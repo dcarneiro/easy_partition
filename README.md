@@ -1,6 +1,7 @@
 # EasyPartition
 
 First of all there's a way more mature gem on https://github.com/fiksu/partitioned that probably suits your need.
+
 If you're still here, I decided to make this gem because the others solutions seem to have a lot of functionalities that I don't need.
 This gem will allow you to create postgres partitions directly on your rails migrations.
 
@@ -36,7 +37,7 @@ TODO: Write usage instructions here
 
 (The MIT License)
 
-Copyright (c) 2011 DHH
+Copyright (c) 2015 Daniel Carneiro
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
